@@ -166,7 +166,7 @@ const display_review = (reviews) => {
 
 
 
-// const load_cart = () => {
+
 //     const container = document.getElementById("add_cart");
 //     const cart = JSON.parse(localStorage.getItem("cart")) || [];
 //     let totalPrice = 0;
@@ -263,7 +263,7 @@ const load_cart = () => {
 
     // Display total price below the table
     const totalDiv = document.createElement("div");
-    totalDiv.classList.add("total-price", "mt-4", "text-center"); // Style to center and display prominently
+    totalDiv.classList.add("total-price", "mt-4", "text-center" , "text-right"); // Style to center and display prominently
     totalDiv.innerHTML = `<h3 class="text-danger fw-bold border border-danger p-2">Total Price: $${totalPrice.toFixed(2)}</h3>`;
     container.appendChild(totalDiv);
 
@@ -274,7 +274,7 @@ const load_cart = () => {
             const index = button.getAttribute("data-index");
             removeFromCart(index);
 
-            container.innerHTML = ""; // Clear the container
+            container.innerHTML = ""; 
             load_cart(); // Reload the cart after removal
         });
     });
