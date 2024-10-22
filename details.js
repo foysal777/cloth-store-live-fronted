@@ -12,6 +12,42 @@ const getparams = () => {
 
 
 
+
+
+
+
+// const display_details = (product) => {
+//     console.log(product);
+//     const parent = document.getElementById("details");
+//     parent.innerHTML = "";
+//     const div = document.createElement("div");
+//     div.classList.add("div_containers", "d-flex", "flex-column", "flex-lg-row");
+//     div.innerHTML = `              
+//         <div class="photo_div col-12 col-sm-12 col-lg-5">
+//             <img class="myphoto img-fluid" src="${product.image_url}" alt="not found" height="450px">
+//         </div>
+
+//         <div class="pro_details col-12 col-sm-12 col-lg-7">
+//             <h2 class="text-left text-danger"><u>Fabrics Details Info</u></h2>
+//             <div class="card_bodyss">
+//                 <div class="">
+//                     <h3 class="text-primary">Name: ${product.name}</h3>
+//                     <h4 class="text-danger">Review: ${product.rating}</h4>
+//                     <h3>Description: ${product.description}</h3>
+//                     <h3 class="text-danger">Price: $${product.price}</h3>
+//                     <h4>Size: ${product.size}</h4>
+//                     <h4 class="text-success" >Color: ${product.color}</h4>
+//                 </div>
+//                 <a onclick="add_to_cart('${product.name}', '${product.image_url}', '${product.price}', this)" class="btn btn-danger mt-3">Add to Cart</a>
+//             </div>
+//         </div>
+//     `;
+//     parent.appendChild(div);
+// };
+
+
+
+// Review Part *************
 const display_details = (product) => {
     console.log(product);
     const parent = document.getElementById("details");
@@ -32,18 +68,64 @@ const display_details = (product) => {
                     <h3>Description: ${product.description}</h3>
                     <h3 class="text-danger">Price: $${product.price}</h3>
                     <h4>Size: ${product.size}</h4>
-                    <h4 class="text-success" >Color: ${product.color}</h4>
+                    <h4 class="text-success">Color: ${product.color}</h4>
                 </div>
-                <a onclick="add_to_cart('${product.name}', '${product.image_url}', '${product.price}', this)" class="btn btn-danger mt-3">Add to Cart</a>
+
+                <!-- Quantity selector -->
+                <div class="quantity_selector mt-3">
+                    <h5>Quantity:</h5>
+                    <button class="btn btn-secondary" onclick="decreaseQuantity()">-</button>
+                    <span id="quantity" class="mx-2">1</span>
+                    <button class="btn btn-secondary" onclick="increaseQuantity()">+</button>
+                </div>
+
+                <!-- Add to cart button with quantity -->
+                <a onclick="add_to_cart('${product.name}', '${product.image_url}', '${product.price}', getQuantity())" class="btn btn-danger mt-3">Add to Cart</a>
             </div>
         </div>
     `;
     parent.appendChild(div);
 };
 
+// JavaScript functions to handle quantity increment and decrement
+let quantity = 1;
 
+const increaseQuantity = () => {
+    quantity++;
+    document.getElementById("quantity").innerText = quantity;
+};
 
-// Review Part *************
+const decreaseQuantity = () => {
+    if (quantity > 1) {
+        quantity--;
+        document.getElementById("quantity").innerText = quantity;
+    }
+};
+
+// Function to return the current quantity value
+const getQuantity = () => {
+    return quantity;
+};
+
+// Modify the `add_to_cart` function to include quantity when adding to the cart
+const add_to_cart = (name, image_url, price, quantity) => {
+    const product = { name, image_url, price, quantity };
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const existingProduct = cart.find(item => item.name === name);
+
+    if (existingProduct) {
+        existingProduct.quantity += quantity;
+    } else {
+        cart.push(product);
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    // Redirect to cart page
+    window.location.href = "add_cart.html";
+};
 
 
 
@@ -82,20 +164,22 @@ const display_review = (reviews) => {
 };
 
 // add to cart  part
-const add_to_cart = (name, image_url, price) => {
-    const product = { name, image_url, price };
+// const add_to_cart = (name, image_url, price) => {
+//     const product = { name, image_url, price };
 
-   console.log(product)
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+//    console.log(product)
+//     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 
 
-    cart.push(product);
+//     cart.push(product);
 
-    localStorage.setItem("cart", JSON.stringify(cart));
+//     localStorage.setItem("cart", JSON.stringify(cart));
 
-    window.location.href = "add_cart.html";
-};
+//     window.location.href = "add_cart.html";
+// };
+
+
 
 const load_cart = () => {
     const container = document.getElementById("add_cart");
