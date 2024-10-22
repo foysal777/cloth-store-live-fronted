@@ -211,43 +211,63 @@ const display_review = (reviews) => {
 // };
 
 
-const load_cart = () => { 
+const load_cart = () => {
     const container = document.getElementById("add_cart");
-    container.innerHTML = ""; 
+    container.innerHTML = ""; // Clear the container before adding new elements
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     let totalPrice = 0;
 
-    
-    const cartWrapper = document.createElement("div");
-    cartWrapper.classList.add("d-flex", "flex-wrap", "justify-content-start", "gap-3", "my-3"); 
+    // Create a table element
+    const table = document.createElement("table");
+    table.classList.add("table", "table-bordered", "text-center");
+
+   
+    table.innerHTML = `
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    `;
+
+    const tableBody = table.querySelector("tbody");
 
     cart.forEach((product, index) => {
-        const div = document.createElement("div");
-        div.classList.add("div_class1", "card", "col-12", "col-md-4", "col-lg-3", "m-2"); 
-        div.style.width = "18rem";
-        div.innerHTML = `
-            <img src="${product.image_url}" class="card-img-top" alt="..." style="height: 150px; object-fit: cover;">
-            <div class="card-body">
-                <h5 class="card-title">${product.name}</h5>
-                <h5 class="card-title">$${product.price}</h5>
-                <a href="#" class="btn btn-success btn-sm">Already Carted</a> <br>
-                <button class="btn btn-danger remove-btn btn-sm mt-2" data-index="${index}">Remove</button>
-            </div>
+        const totalProductPrice = parseFloat(product.price) * (product.quantity || 1);
+        totalPrice += totalProductPrice;
+
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td><img src="${product.image_url}" alt="${product.name}" style="width: 100px; height: 100px; object-fit: cover;"></td>
+            <td>${product.name}</td>
+            <td>$${product.price}</td>
+            <td>${product.quantity || 1}</td>
+            <td>$${totalProductPrice.toFixed(2)}</td>
+            <td>
+                <button class="btn btn-danger btn-sm remove-btn" data-index="${index}">Remove</button>
+            </td>
         `;
 
-        cartWrapper.appendChild(div); 
-        totalPrice += parseFloat(product.price);
+        tableBody.appendChild(row);
     });
 
-    container.appendChild(cartWrapper); 
+    container.appendChild(table); // Append the table to the container
 
-
+    // Display total price below the table
     const totalDiv = document.createElement("div");
-    totalDiv.classList.add("total-price", "mt-4", "text-center"); 
+    totalDiv.classList.add("total-price", "mt-4", "text-center"); // Style to center and display prominently
     totalDiv.innerHTML = `<h3 class="text-danger fw-bold border border-danger p-2">Total Price: $${totalPrice.toFixed(2)}</h3>`;
     container.appendChild(totalDiv);
 
-  
+    // Add event listener to remove buttons
     const removeButtons = document.querySelectorAll(".remove-btn");
     removeButtons.forEach(button => {
         button.addEventListener("click", () => {
@@ -255,7 +275,7 @@ const load_cart = () => {
             removeFromCart(index);
 
             container.innerHTML = ""; // Clear the container
-            load_cart(); 
+            load_cart(); // Reload the cart after removal
         });
     });
 };
@@ -267,7 +287,6 @@ const removeFromCart = (index) => {
 };
 
 window.onload = load_cart;
-
 
 
 
