@@ -221,7 +221,7 @@ const load_cart = () => {
     const table = document.createElement("table");
     table.classList.add("table", "table-bordered", "text-center");
 
-   
+    // Create table headers
     table.innerHTML = `
         <thead class="table-dark">
             <tr>
@@ -259,11 +259,11 @@ const load_cart = () => {
         tableBody.appendChild(row);
     });
 
-    container.appendChild(table); // Append the table to the container
+    container.appendChild(table);
 
-    // Display total price below the table
+    
     const totalDiv = document.createElement("div");
-    totalDiv.classList.add("total-price", "mt-4", "text-center" , "text-right"); // Style to center and display prominently
+    totalDiv.classList.add("total-price", "mt-4", "text-right"); 
     totalDiv.innerHTML = `<h3 class="text-danger fw-bold border border-danger p-2">Total Price: $${totalPrice.toFixed(2)}</h3>`;
     container.appendChild(totalDiv);
 
@@ -274,8 +274,8 @@ const load_cart = () => {
             const index = button.getAttribute("data-index");
             removeFromCart(index);
 
-            container.innerHTML = ""; 
-            load_cart(); // Reload the cart after removal
+            container.innerHTML = ""; // Clear the container
+            load_cart(); 
         });
     });
 };
@@ -291,12 +291,11 @@ window.onload = load_cart;
 
 
 
-
 // for Review 
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Function to fetch and display the average rating
+   
     function fetchAverageRating() {
         fetch('https://cloth-store-backend-api.vercel.app/shop/average_rating/')
             .then(response => response.json())
