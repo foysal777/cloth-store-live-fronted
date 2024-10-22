@@ -74,9 +74,9 @@ const display_details = (product) => {
                 <!-- Quantity selector -->
                 <div class="quantity_selector mt-3">
                     <h5>Quantity:</h5>
-                    <button class="btn btn-secondary" onclick="decreaseQuantity()">-</button>
+                    <button class="btn btn-danger" onclick="decreaseQuantity()">-</button>
                     <span id="quantity" class="mx-2">1</span>
-                    <button class="btn btn-secondary" onclick="increaseQuantity()">+</button>
+                    <button class="btn btn-danger" onclick="increaseQuantity()">+</button>
                 </div>
 
                 <!-- Add to cart button with quantity -->
@@ -163,64 +163,99 @@ const display_review = (reviews) => {
     });
 };
 
-// add to cart  part
-// const add_to_cart = (name, image_url, price) => {
-//     const product = { name, image_url, price };
-
-//    console.log(product)
-//     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 
 
-//     cart.push(product);
+// const load_cart = () => {
+//     const container = document.getElementById("add_cart");
+//     const cart = JSON.parse(localStorage.getItem("cart")) || [];
+//     let totalPrice = 0;
 
-//     localStorage.setItem("cart", JSON.stringify(cart));
+//     cart.forEach((product, index) => {
+//         const div = document.createElement("div");
+//         div.classList.add("div_class1");
+//         div.innerHTML = `
+//             <div class="card row " style="width: 10rem; ">
+//                 <img src="${product.image_url}" class="card_img" alt="...">
+//                 <div class="card-body">
+//                     <h5 class="card-title">${product.name}</h5>
+//                     <h5 class="card-title">${product.price}</h5>
+//                     <a href="#" class="btn btn-success btn-sm">Already Carted</a> <br>
 
-//     window.location.href = "add_cart.html";
+//                     <button class="btn btn-danger remove-btn btn-sm " data-index="${index}">Remove</button>
+//                 </div>
+//             </div>
+//         `;
+
+//         container.appendChild(div);
+//         totalPrice += parseFloat(product.price);
+//     });
+
+//     // Display total price
+//     const totalDiv = document.createElement("div");
+//     totalDiv.classList.add("total-price", "m-3");
+//     totalDiv.innerHTML = `<h3 class="text-danger fw-bold border border-danger">Total Price : $${totalPrice.toFixed(2)}</h3>`;
+//     container.appendChild(totalDiv);
+
+//     // Add  to remove buttons
+//     const removeButtons = document.querySelectorAll(".remove-btn");
+//     removeButtons.forEach(button => {
+//         button.addEventListener("click", () => {
+//             const index = button.getAttribute("data-index");
+//             removeFromCart(index);
+
+//             container.innerHTML = "";
+//             load_cart();
+//         });
+//     });
 // };
 
 
-
-const load_cart = () => {
+const load_cart = () => { 
     const container = document.getElementById("add_cart");
+    container.innerHTML = ""; 
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     let totalPrice = 0;
 
+    
+    const cartWrapper = document.createElement("div");
+    cartWrapper.classList.add("d-flex", "flex-wrap", "justify-content-start", "gap-3", "my-3"); 
+
     cart.forEach((product, index) => {
         const div = document.createElement("div");
-        div.classList.add("div_class1");
+        div.classList.add("div_class1", "card", "col-12", "col-md-4", "col-lg-3", "m-2"); 
+        div.style.width = "18rem";
         div.innerHTML = `
-            <div class="card row " style="width: 10rem; ">
-                <img src="${product.image_url}" class="card_img" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">${product.name}</h5>
-                    <h5 class="card-title">${product.price}</h5>
-                    <a href="#" class="btn btn-success btn-sm">Already Carted</a> <br>
-
-                    <button class="btn btn-danger remove-btn btn-sm " data-index="${index}">Remove</button>
-                </div>
+            <img src="${product.image_url}" class="card-img-top" alt="..." style="height: 150px; object-fit: cover;">
+            <div class="card-body">
+                <h5 class="card-title">${product.name}</h5>
+                <h5 class="card-title">$${product.price}</h5>
+                <a href="#" class="btn btn-success btn-sm">Already Carted</a> <br>
+                <button class="btn btn-danger remove-btn btn-sm mt-2" data-index="${index}">Remove</button>
             </div>
         `;
 
-        container.appendChild(div);
+        cartWrapper.appendChild(div); 
         totalPrice += parseFloat(product.price);
     });
 
-    // Display total price
+    container.appendChild(cartWrapper); 
+
+
     const totalDiv = document.createElement("div");
-    totalDiv.classList.add("total-price", "m-3");
-    totalDiv.innerHTML = `<h3 class="text-danger fw-bold border border-danger">Total Price : $${totalPrice.toFixed(2)}</h3>`;
+    totalDiv.classList.add("total-price", "mt-4", "text-center"); 
+    totalDiv.innerHTML = `<h3 class="text-danger fw-bold border border-danger p-2">Total Price: $${totalPrice.toFixed(2)}</h3>`;
     container.appendChild(totalDiv);
 
-    // Add  to remove buttons
+  
     const removeButtons = document.querySelectorAll(".remove-btn");
     removeButtons.forEach(button => {
         button.addEventListener("click", () => {
             const index = button.getAttribute("data-index");
             removeFromCart(index);
 
-            container.innerHTML = "";
-            load_cart();
+            container.innerHTML = ""; // Clear the container
+            load_cart(); 
         });
     });
 };
@@ -231,8 +266,10 @@ const removeFromCart = (index) => {
     localStorage.setItem("cart", JSON.stringify(cart));
 };
 
-
 window.onload = load_cart;
+
+
+
 
 
 
