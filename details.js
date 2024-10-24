@@ -210,7 +210,6 @@ const display_review = (reviews) => {
 //     });
 // };
 
-
 const load_cart = () => {
     const container = document.getElementById("add_cart");
     container.innerHTML = ""; // Clear the container before adding new elements
@@ -219,7 +218,7 @@ const load_cart = () => {
 
     // Create a table element
     const table = document.createElement("table");
-    table.classList.add("table", "table-bordered", "text-center");
+    table.classList.add("table", "table-bordered", "text-center", "table-responsive");
 
     // Create table headers
     table.innerHTML = `
@@ -261,10 +260,18 @@ const load_cart = () => {
 
     container.appendChild(table);
 
-    
+    // Create a row for the total price aligned to the right
     const totalDiv = document.createElement("div");
-    totalDiv.classList.add("total-price", "mt-4", "text-right"); 
-    totalDiv.innerHTML = `<h3 class="text-danger fw-bold border border-danger p-2">Total Price: $${totalPrice.toFixed(2)}</h3>`;
+    totalDiv.classList.add("row", "mt-4");
+
+    totalDiv.innerHTML = `
+        <div class="col-12 d-flex justify-content-end">
+            <div class="text-end">
+                <h3 class="text-danger fw-bold border border-danger p-3">Total Price: $${totalPrice.toFixed(2)}</h3>
+            </div>
+        </div>
+    `;
+
     container.appendChild(totalDiv);
 
     // Add event listener to remove buttons
