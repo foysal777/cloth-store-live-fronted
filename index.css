@@ -362,10 +362,10 @@ html, body {
     background-color: rgb(236, 54, 54);
     border-color: rgb(236, 54, 54);
 }
-.return .icon2 {
+/* .return .icon2 {
     font-size: 2em;
     margin-bottom: 10px;
-}
+} */
 
 /* contact part  */
 .contact-form {
@@ -433,4 +433,54 @@ html, body {
 
     height: 100px;
     
+}
+
+
+/* for policy  */
+
+/* .return1 {
+    background-color: #f8f9fa; 
+}
+.icon2 {
+    font-size: 48px; 
+    color: #dc3545; 
+}
+.return div p {
+    margin-bottom: 0;
+}
+@media (max-width: 576px) {
+  
+    .return {
+        gap: 20px;
+    }
+    .icon2 {
+        font-size: 40px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+   
+    .icon2 {
+        font-size: 42px;
+    }
+}
+@media (min-width: 992px) {
+   
+    .icon2 {
+        font-size: 48px;
+    }
+} */
+
+
+
+/* For three photo csss  */
+
+
+.red {
+    background-color: #f8f9fa; /* Light background color */
+}
+
+@media (max-width: 576px) {
+    .red img {
+        height: auto; /* Allow image height to adjust automatically */
+    }
 }
