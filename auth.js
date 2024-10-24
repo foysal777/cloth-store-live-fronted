@@ -174,6 +174,9 @@ const checkAuthStatus = async () => {
                     <li class="nav-item">
                         <a class="nav-link" href="wishlist.html">Wishlist</a>
                     </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="profile.html">My Profile</a>
+                    </li>
                      ${adminLink}
                     <li class="nav-item">
                         <a id="logoutLink" class="nav-link" href="#" onclick="handleLogout()">Logout</a>
