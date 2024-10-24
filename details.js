@@ -210,6 +210,10 @@ const display_review = (reviews) => {
 //     });
 // };
 
+
+// add to cart table format show 
+
+
 const load_cart = () => {
     const container = document.getElementById("add_cart");
     container.innerHTML = ""; // Clear the container before adding new elements
@@ -218,11 +222,10 @@ const load_cart = () => {
 
     // Create a table element
     const table = document.createElement("table");
-    table.classList.add("table", "table-bordered", "text-center", "table-responsive");
 
     // Create table headers
     table.innerHTML = `
-        <thead class="table-dark">
+        <thead>
             <tr>
                 <th scope="col">Image</th>
                 <th scope="col">Product Name</th>
@@ -294,7 +297,6 @@ const removeFromCart = (index) => {
 };
 
 window.onload = load_cart;
-
 
 
 

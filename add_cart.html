@@ -35,13 +35,44 @@
         color: black !important;
     }
 
-    .card_img {
+    .table-responsive-custom {
+        overflow-x: auto; 
+        -webkit-overflow-scrolling: touch; 
+    }
 
+    table {
+        width: 100%; 
+        min-width: 600px; 
+        border-collapse: collapse; 
+    }
 
-        border-radius: 300px;
-        height: 200px;
-        padding: 10px;
+    th, td {
+        padding: 12px; /* Padding for table cells */
+        text-align: center; /* Center align text */
+    }
 
+    thead th {
+        background-color: #343a40; /* Dark header background */
+        color: white; /* White text for header */
+    }
+
+    img {
+        width: 100px; 
+        height: 100px;
+        object-fit: cover;
+    }
+
+    /* Adjust table on smaller screens */
+    @media (max-width: 767px) {
+        th, td {
+            padding: 8px; /* Reduce padding on small screens */
+            font-size: 14px; /* Smaller text on small screens */
+        }
+
+        img {
+            width: 80px;
+            height: 80px;
+        }
     }
 </style>
 
