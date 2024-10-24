@@ -53,7 +53,7 @@
         }
         .profile-left {
             text-align: center;
-            background-color: rgb(245, 145, 109);
+            background-color: rgb(253, 67, 113);
         }
         @media (max-width: 768px) {
             .profile-left {
@@ -124,19 +124,30 @@
 
 
 
-      <h1 class="text-center p-5">Welcome to profile page </h1>
+      <h1 class="text-center p-3 text-danger">Welcome Your profile page </h1>
 
       <div class="container mt-5">
         <div class="profile-page row">
-            <!-- Left Side: Profile Image and Change Password Button -->
-            <div class="col-md-4 profile-left ">
+            <!-- Left Side: Profile Image and Details with Change Password Button -->
+            <div class="col-md-4 profile-left rounded-lg">
                 <img src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001882.png" alt="Profile Image" class="profile-image mb-3">
-                <button class="btn btn-primary">Change Password</button>
+                
+                <!-- Display User Information -->
+                <div class="profile-info">
+                    <p>Username: johndoe</p>
+                    <p>First Name: John</p>
+                    <p>Last Name: Doe</p>
+                    <p>Email: johndoe@example.com</p>
+                    <p>Phone: +0199567890</p>
+                </div>
+
+                <!-- Change Password Button -->
+                <button class="btn btn-light mt-3">Change Password</button>
             </div>
 
             <!-- Right Side: Profile Edit Form -->
             <div class="col-md-8">
-                <h3 class="text-center ">Edit Profile</h3>
+                <h3 class="text-center">Edit Profile</h3>
                 <form>
                     <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
@@ -154,11 +165,18 @@
                         <label for="lastName" class="form-label">Last Name</label>
                         <input type="text" class="form-control" id="lastName" placeholder="Enter last name">
                     </div>
+                    <div class="mb-3">
+                        <label for="phoneNumber" class="form-label">Phone Number</label>
+                        <input type="text" class="form-control" id="phoneNumber" placeholder="Enter phone number">
+                    </div>
                     <button type="submit" class="btn btn-success">Save Changes</button>
                 </form>
             </div>
         </div>
     </div>
+
+
+
 
     </main>
 
