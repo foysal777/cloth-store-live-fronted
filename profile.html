@@ -37,8 +37,8 @@
 
 
 
-    .profile-card {
-            max-width: 600px;
+    .profile-page {
+            max-width: 900px;
             margin: auto;
             background-color: #f8f9fa;
             padding: 20px;
@@ -51,9 +51,12 @@
             object-fit: cover;
             border-radius: 50%;
         }
+        .profile-left {
+            text-align: center;
+        }
         @media (max-width: 768px) {
-            .profile-card {
-                padding: 10px;
+            .profile-left {
+                margin-bottom: 20px;
             }
             .profile-image {
                 width: 120px;
@@ -123,20 +126,38 @@
       <h1 class="text-center p-5">Welcome to profile page </h1>
 
       <div class="container mt-5">
-        <div class="profile-card row">
-            <div class="col-md-4 text-center mb-3 mb-md-0">
-                <img src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001882.png" alt="Profile Image" class="profile-image">
+        <div class="profile-page row">
+            <!-- Left Side: Profile Image and Change Password Button -->
+            <div class="col-md-4 profile-left">
+                <img src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001882.png" alt="Profile Image" class="profile-image mb-3">
+                <button class="btn btn-primary">Change Password</button>
             </div>
+
+            <!-- Right Side: Profile Edit Form -->
             <div class="col-md-8">
-                <h5 class="mb-2">Username: <span class="text-muted">JohnDoe</span></h5>
-                <p class="mb-1">Email: <span class="text-muted">johndoe@example.com</span></p>
-                <p class="mb-1">First Name: <span class="text-muted">John</span></p>
-                <p class="mb-1">Last Name: <span class="text-muted">Doe</span></p>
-                <button class="btn btn-primary mt-3">Change Password</button>
+                <h5>Edit Profile</h5>
+                <form>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" placeholder="Enter username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="Enter first name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="Enter last name">
+                    </div>
+                    <button type="submit" class="btn btn-success">Save Changes</button>
+                </form>
             </div>
         </div>
     </div>
-
 
     </main>
 
