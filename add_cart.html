@@ -47,13 +47,13 @@
     }
 
     th, td {
-        padding: 12px; /* Padding for table cells */
-        text-align: center; /* Center align text */
+        padding: 12px; 
+        text-align: center; 
     }
 
     thead th {
-        background-color: #343a40; /* Dark header background */
-        color: white; /* White text for header */
+        background-color: #343a40; 
+        color: white; 
     }
 
     img {
@@ -62,11 +62,11 @@
         object-fit: cover;
     }
 
-    /* Adjust table on smaller screens */
+
     @media (max-width: 767px) {
         th, td {
-            padding: 8px; /* Reduce padding on small screens */
-            font-size: 14px; /* Smaller text on small screens */
+            padding: 8px; 
+            font-size: 14px; 
         }
 
         img {
@@ -74,9 +74,15 @@
             height: 80px;
         }
     }
+
+    body {
+
+overflow-x: hidden !important;
+}
+
 </style>
 
-<body>
+<body >
     <header>
         <!-- navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg_nav shadow-sm  mb-5 bg-body rounded fixed-top">
@@ -116,11 +122,7 @@
                             </div>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <button class="btn btn-danger" type="submit">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </form>
+                    
                 </div>
             </div>
         </nav>
@@ -148,61 +150,61 @@
 </main>
 
 
-    <footer class="footer mt-5">
-        <div class="top-footer">
-            <div class="top container">
-                <div class="row">
+<footer class="footer mt-5">
+    <div class="top-footer">
+        <div class="top w-100">
+            <div class="row mx-0">
 
-                    <div class="col-md-3 col-sm-6 footer-column">
-                        <h4 class="text-white">Winter Company </h4>
-                        <ul>
-                            <p class="text-black">Winter Technologies is your go-to place for building websites. We
-                                offer a wide variety of website templates from various creators to help you design a
-                                unique and professional site. Let Winter Technologies help you bring your website ideas
-                                to life.</p>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 col-sm-6 footer-column">
-                        <h4 class=" text-white">Useful Link </h4>
-                        <ul class="use">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Listing</a></li>
-                            <li><a href="#">Product Details</a></li>
-                            <li><a href="#">Terms and Condition</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 col-sm-6 footer-column">
-                        <h4 class="text-white">Contact Us</h4>
-                        <ul>
-                            <p class="text-black">Connect with us to give wings to your business.</p>
-                            <li><a href="#">winter434@gmail.com</a></li>
+                <div class="col-md-3 col-sm-6 footer-column">
+                    <h4 class="text-white">Winter Company </h4>
+                    <p class="text-black">Winter Technologies is your go-to place for building websites. We
+                        offer a wide variety of website templates from various creators to help you design a
+                        unique and professional site. Let Winter Technologies help you bring your website ideas
+                        to life.</p>
+                </div>
 
-                        </ul>
-                    </div>
+                <div class="col-md-3 col-sm-6 footer-column">
+                    <h4 class=" text-white">Useful Links</h4>
+                    <ul class="use">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Listing</a></li>
+                        <li><a href="#">Product Details</a></li>
+                        <li><a href="#">Terms and Condition</a></li>
+                    </ul>
+                </div>
 
-                    <div class="col-md-3 col-sm-6 footer-column">
-                        <h4 class="text-white">Follow Us</h4>
-                        <ul class="social-icons d-flex  ">
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <div class="col-md-3 col-sm-6 footer-column">
+                    <h4 class="text-white">Contact Us</h4>
+                    <p class="text-black">Connect with us to give wings to your business.</p>
+                    <ul>
+                        <li><a href="mailto:winter434@gmail.com">winter434@gmail.com</a></li>
+                    </ul>
+                </div>
 
-                        </ul>
-                        <input type="text" name="" id="" placeholder="Write a Message">
-                    </div>
+                <div class="col-md-3 col-sm-6 footer-column">
+                    <h4 class="text-white">Follow Us</h4>
+                    <ul class="social-icons d-flex">
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                    <input type="text" placeholder="Write a Message"><br><br>
+                    <p class="text-light fs-4">Call Us : +88934645322</p>
                 </div>
             </div>
         </div>
-        <div class="bottom-footer">
-            <div class="all  text-center">
-                <p>All Rights Reserved Copyright &copy; 2024</p>
-                <p class="text-center text-secondary" >Winter. Limited</p>
-                <p class="text-center text-secondary" > ◅ Foysal Hossain Munna ▻ </p>
-            </div>
+    </div>
+
+    <div class="bottom-footer w-100">
+        <div class="text-center">
+            <p>All Rights Reserved Copyright &copy; 2024</p>
+            <p class="text-center text-secondary">Winter. Limited</p>
+            <p class="text-center text-secondary">◅ Foysal Hossain Munna ▻</p>
         </div>
-    </footer>
+    </div>
+</footer>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

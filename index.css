@@ -438,15 +438,22 @@ html, body {
 
 /* for policy  */
 
-/* .return1 {
+.return1 {
     background-color: #f8f9fa; 
 }
 .icon2 {
     font-size: 48px; 
-    color: #dc3545; 
+    color: #ffffff; 
 }
 .return div p {
     margin-bottom: 0;
+  
+}
+.return{
+
+
+    background-color: #000000;
+    padding: 50px;
 }
 @media (max-width: 576px) {
   
@@ -468,7 +475,7 @@ html, body {
     .icon2 {
         font-size: 48px;
     }
-} */
+}
 
 
 

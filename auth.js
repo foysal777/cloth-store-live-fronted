@@ -163,10 +163,11 @@ const checkAuthStatus = async () => {
                 console.log("User Data:", data); 
 
     
-                const adminLink = data.is_admin ? `
+                const dashboard = data.is_admin ? `
                     <li class="nav-item">
-                        <a id="adminLink" class="nav-link" href="admin.html">Admin Dashboard</a>
+                        <a id="dashboard" class="nav-link" href="test.html">Admin Dashboard</a>
                     </li>
+
                 ` : '';
 
           
@@ -177,7 +178,7 @@ const checkAuthStatus = async () => {
                       <li class="nav-item">
                         <a class="nav-link" href="profile.html">My Profile</a>
                     </li>
-                     ${adminLink}
+                     ${dashboard}
                     <li class="nav-item">
                         <a id="logoutLink" class="nav-link" href="#" onclick="handleLogout()">Logout</a>
                     </li>
@@ -240,13 +241,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const registerLink = document.getElementById("registerLink");
   const loginLink = document.getElementById("loginLink");
   const logoutLink = document.getElementById("logoutLink");
-  const adminLink = document.getElementById("adminlink");
+  const dashboard = document.getElementById("dashboard");
 
   if (token === "true") {
       registerLink.style.display = "none";
       loginLink.style.display = "none";
       logoutLink.style.display = "block";
-      adminLink.style.display = "block";
+      dashboard.style.display = "block";
   } else {
       registerLink.style.display = "block";
       loginLink.style.display = "block";
