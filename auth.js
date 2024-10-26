@@ -165,7 +165,7 @@ const checkAuthStatus = async () => {
     
                 const dashboard = data.is_admin ? `
                     <li class="nav-item">
-                        <a id="dashboard" class="nav-link" href="test.html">Admin Dashboard</a>
+                        <a id="dashboard" class="nav-link" href="dashboard.html">Admin Dashboard</a>
                     </li>
 
                 ` : '';

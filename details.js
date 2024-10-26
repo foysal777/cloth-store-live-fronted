@@ -11,42 +11,6 @@ const getparams = () => {
 };
 
 
-
-
-
-
-
-// const display_details = (product) => {
-//     console.log(product);
-//     const parent = document.getElementById("details");
-//     parent.innerHTML = "";
-//     const div = document.createElement("div");
-//     div.classList.add("div_containers", "d-flex", "flex-column", "flex-lg-row");
-//     div.innerHTML = `              
-//         <div class="photo_div col-12 col-sm-12 col-lg-5">
-//             <img class="myphoto img-fluid" src="${product.image_url}" alt="not found" height="450px">
-//         </div>
-
-//         <div class="pro_details col-12 col-sm-12 col-lg-7">
-//             <h2 class="text-left text-danger"><u>Fabrics Details Info</u></h2>
-//             <div class="card_bodyss">
-//                 <div class="">
-//                     <h3 class="text-primary">Name: ${product.name}</h3>
-//                     <h4 class="text-danger">Review: ${product.rating}</h4>
-//                     <h3>Description: ${product.description}</h3>
-//                     <h3 class="text-danger">Price: $${product.price}</h3>
-//                     <h4>Size: ${product.size}</h4>
-//                     <h4 class="text-success" >Color: ${product.color}</h4>
-//                 </div>
-//                 <a onclick="add_to_cart('${product.name}', '${product.image_url}', '${product.price}', this)" class="btn btn-danger mt-3">Add to Cart</a>
-//             </div>
-//         </div>
-//     `;
-//     parent.appendChild(div);
-// };
-
-
-
 // Review Part *************
 const display_details = (product) => {
     console.log(product);
@@ -167,58 +131,14 @@ const display_review = (reviews) => {
 
 
 
-//     const container = document.getElementById("add_cart");
-//     const cart = JSON.parse(localStorage.getItem("cart")) || [];
-//     let totalPrice = 0;
-
-//     cart.forEach((product, index) => {
-//         const div = document.createElement("div");
-//         div.classList.add("div_class1");
-//         div.innerHTML = `
-//             <div class="card row " style="width: 10rem; ">
-//                 <img src="${product.image_url}" class="card_img" alt="...">
-//                 <div class="card-body">
-//                     <h5 class="card-title">${product.name}</h5>
-//                     <h5 class="card-title">${product.price}</h5>
-//                     <a href="#" class="btn btn-success btn-sm">Already Carted</a> <br>
-
-//                     <button class="btn btn-danger remove-btn btn-sm " data-index="${index}">Remove</button>
-//                 </div>
-//             </div>
-//         `;
-
-//         container.appendChild(div);
-//         totalPrice += parseFloat(product.price);
-//     });
-
-//     // Display total price
-//     const totalDiv = document.createElement("div");
-//     totalDiv.classList.add("total-price", "m-3");
-//     totalDiv.innerHTML = `<h3 class="text-danger fw-bold border border-danger">Total Price : $${totalPrice.toFixed(2)}</h3>`;
-//     container.appendChild(totalDiv);
-
-//     // Add  to remove buttons
-//     const removeButtons = document.querySelectorAll(".remove-btn");
-//     removeButtons.forEach(button => {
-//         button.addEventListener("click", () => {
-//             const index = button.getAttribute("data-index");
-//             removeFromCart(index);
-
-//             container.innerHTML = "";
-//             load_cart();
-//         });
-//     });
-// };
-
-
-// add to cart table format show 
 
 
 const load_cart = () => {
     const container = document.getElementById("add_cart");
-    container.innerHTML = ""; // Clear the container before adding new elements
+    container.innerHTML = ""; 
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     let totalPrice = 0;
+    let totalQuantity = 0;
 
     // Create a table element
     const table = document.createElement("table");
@@ -242,8 +162,10 @@ const load_cart = () => {
     const tableBody = table.querySelector("tbody");
 
     cart.forEach((product, index) => {
+        const productQuantity = product.quantity || 1;
         const totalProductPrice = parseFloat(product.price) * (product.quantity || 1);
         totalPrice += totalProductPrice;
+        totalQuantity += productQuantity; 
 
         const row = document.createElement("tr");
 
@@ -262,6 +184,8 @@ const load_cart = () => {
     });
 
     container.appendChild(table);
+    localStorage.setItem("totalQuantity", totalQuantity);
+    localStorage.setItem("totalamount", totalPrice);
 
     // Create a row for the total price aligned to the right
     const totalDiv = document.createElement("div");
