@@ -132,7 +132,39 @@ overflow-x: hidden !important;
     </header>
     <main>
 
+
+         <!-- Modal for User Information -->
+<div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="checkoutModalLabel">Enter Your Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="checkoutForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="tel" class="form-control" id="phone" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <textarea class="form-control" id="address" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Proceed to Checkout</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
  
+
+
 
     <!-- Add to cart  -->
 
@@ -217,6 +249,7 @@ overflow-x: hidden !important;
     <script src="auth.js"></script>
     <script src="logout.js"></script>
     <script src="details.js"></script>
+    <script src="add_cart.js"></script>
 
 
 </body>

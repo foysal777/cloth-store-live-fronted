@@ -133,94 +133,94 @@ const display_review = (reviews) => {
 
 
 
-const load_cart = () => {
-    const container = document.getElementById("add_cart");
-    container.innerHTML = ""; 
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    let totalPrice = 0;
-    let totalQuantity = 0;
+// const load_cart = () => {
+//     const container = document.getElementById("add_cart");
+//     container.innerHTML = ""; 
+//     const cart = JSON.parse(localStorage.getItem("cart")) || [];
+//     let totalPrice = 0;
+//     let totalQuantity = 0;
 
-    // Create a table element
-    const table = document.createElement("table");
+//     // Create a table element
+//     const table = document.createElement("table");
 
-    // Create table headers
-    table.innerHTML = `
-        <thead>
-            <tr>
-                <th scope="col">Image</th>
-                <th scope="col">Product Name</th>
-                <th scope="col">Price</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Total</th>
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    `;
+//     // Create table headers
+//     table.innerHTML = `
+//         <thead>
+//             <tr>
+//                 <th scope="col">Image</th>
+//                 <th scope="col">Product Name</th>
+//                 <th scope="col">Price</th>
+//                 <th scope="col">Quantity</th>
+//                 <th scope="col">Total</th>
+//                 <th scope="col">Action</th>
+//             </tr>
+//         </thead>
+//         <tbody>
+//         </tbody>
+//     `;
 
-    const tableBody = table.querySelector("tbody");
+//     const tableBody = table.querySelector("tbody");
 
-    cart.forEach((product, index) => {
-        const productQuantity = product.quantity || 1;
-        const totalProductPrice = parseFloat(product.price) * (product.quantity || 1);
-        totalPrice += totalProductPrice;
-        totalQuantity += productQuantity; 
+//     cart.forEach((product, index) => {
+//         const productQuantity = product.quantity || 1;
+//         const totalProductPrice = parseFloat(product.price) * (product.quantity || 1);
+//         totalPrice += totalProductPrice;
+//         totalQuantity += productQuantity; 
 
-        const row = document.createElement("tr");
+//         const row = document.createElement("tr");
 
-        row.innerHTML = `
-            <td><img src="${product.image_url}" alt="${product.name}" style="width: 100px; height: 100px; object-fit: cover;"></td>
-            <td>${product.name}</td>
-            <td>$${product.price}</td>
-            <td>${product.quantity || 1}</td>
-            <td>$${totalProductPrice.toFixed(2)}</td>
-            <td>
-                <button class="btn btn-danger btn-sm remove-btn" data-index="${index}">Remove</button>
-            </td>
-        `;
+//         row.innerHTML = `
+//             <td><img src="${product.image_url}" alt="${product.name}" style="width: 100px; height: 100px; object-fit: cover;"></td>
+//             <td>${product.name}</td>
+//             <td>$${product.price}</td>
+//             <td>${product.quantity || 1}</td>
+//             <td>$${totalProductPrice.toFixed(2)}</td>
+//             <td>
+//                 <button class="btn btn-danger btn-sm remove-btn" data-index="${index}">Remove</button>
+//             </td>
+//         `;
 
-        tableBody.appendChild(row);
-    });
+//         tableBody.appendChild(row);
+//     });
 
-    container.appendChild(table);
-    localStorage.setItem("totalQuantity", totalQuantity);
-    localStorage.setItem("totalamount", totalPrice);
+//     container.appendChild(table);
+//     localStorage.setItem("totalQuantity", totalQuantity);
+//     localStorage.setItem("totalamount", totalPrice);
 
-    // Create a row for the total price aligned to the right
-    const totalDiv = document.createElement("div");
-    totalDiv.classList.add("row", "mt-4");
+//     // Create a row for the total price aligned to the right
+//     const totalDiv = document.createElement("div");
+//     totalDiv.classList.add("row", "mt-4");
 
-    totalDiv.innerHTML = `
-        <div class="col-12 d-flex justify-content-end">
-            <div class="text-end">
-                <h3 class="text-danger fw-bold border border-danger p-3">Total Price: $${totalPrice.toFixed(2)}</h3>
-            </div>
-        </div>
-    `;
+//     totalDiv.innerHTML = `
+//         <div class="col-12 d-flex justify-content-end">
+//             <div class="text-end">
+//                 <h3 class="text-danger fw-bold border border-danger p-3">Total Price: $${totalPrice.toFixed(2)}</h3>
+//             </div>
+//         </div>
+//     `;
 
-    container.appendChild(totalDiv);
+//     container.appendChild(totalDiv);
 
-    // Add event listener to remove buttons
-    const removeButtons = document.querySelectorAll(".remove-btn");
-    removeButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            const index = button.getAttribute("data-index");
-            removeFromCart(index);
+//     // Add event listener to remove buttons
+//     const removeButtons = document.querySelectorAll(".remove-btn");
+//     removeButtons.forEach(button => {
+//         button.addEventListener("click", () => {
+//             const index = button.getAttribute("data-index");
+//             removeFromCart(index);
 
-            container.innerHTML = ""; // Clear the container
-            load_cart(); 
-        });
-    });
-};
+//             container.innerHTML = ""; // Clear the container
+//             load_cart(); 
+//         });
+//     });
+// };
 
-const removeFromCart = (index) => {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart.splice(index, 1);
-    localStorage.setItem("cart", JSON.stringify(cart));
-};
+// const removeFromCart = (index) => {
+//     let cart = JSON.parse(localStorage.getItem("cart")) || [];
+//     cart.splice(index, 1);
+//     localStorage.setItem("cart", JSON.stringify(cart));
+// };
 
-window.onload = load_cart;
+// window.onload = load_cart;
 
 
 
