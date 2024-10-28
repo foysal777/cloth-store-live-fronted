@@ -85,7 +85,8 @@ checkoutForm.addEventListener("submit", (event) => {
     const userDetails = {
         name: document.getElementById("name").value,
         phone: document.getElementById("phone").value,
-        address: document.getElementById("address").value
+        address: document.getElementById("address").value,
+        email: document.getElementById("email").value
     };
 
     // Store user details in localStorage or pass it to the backend as needed
