@@ -19,6 +19,8 @@ There are two types of user
 - Users can buy products.
 - The user gives a review of the product.
 - Users filter, Search, sorting, Color the their desired products.
+- Users can give payment by SSL COMMERZE
+
   
 
 
@@ -33,6 +35,7 @@ There are two types of user
 - **User Profile**: Users can update their personal information in the "My Profile" section.
 - **Product Search, Filter, and Sort**: Search for items, filter by category, and price, and sort by popularity, price, or latest.
 - **Contact Form**: Customers can reach out to the store team with questions or feedback.
+- **SSL COMMERZE**
 
 
 
