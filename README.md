@@ -48,7 +48,7 @@ There are two types of user
 - **APIs**: For potential integration with external services
 
 ## Usages
-- Navigate to https://cloth-store-backend-api.vercel.app/ in your browser.
+- Navigate to https://foysal777.github.io/cloth-store-live-fronted/ in your browser.
 - Register as a new user or login if you already have an account.
 - Browse products, add them to your cart, view details, and interact with wishlists and reviews.
 - Access your dashboard to manage your profile, view your orders, and check out saved items.
@@ -56,6 +56,7 @@ There are two types of user
 ## Contact
 - Email: foysal.cse11@gmail.com
 - GitHub: https://github.com/foysal777
+- portfolio : https://foysal777.github.io/foysal-portfolio/
 
 
 
